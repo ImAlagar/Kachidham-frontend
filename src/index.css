@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;    
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Ensure smooth scrolling */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shine {
+  animation: shine 2s infinite;
+}
+
+
+/* Customization Modal Styles */
+.customization-modal {
+  font-family: 'Inter', sans-serif;
+}
+
+.canvas-container {
+  position: relative;
+  display: inline-block;
+}
+
+.canvas-grid {
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.layer-item {
+  transition: all 0.2s ease;
+}
+
+.layer-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.color-swatch {
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+.tool-button {
+  transition: all 0.2s ease;
+}
+
+.tool-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Canvas selection styles */
+.canvas-selection {
+  border: 2px dashed #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .customization-modal .flex {
+    flex-direction: column;
+  }
+  
+  .customization-modal .w-64 {
+    width: 100%;
+    max-height: 200px;
+  }
+}
+
+
+
+.animate-vertical-scroll-smooth {
+  display: flex;
+  flex-direction: column;
+  animation: scrollDownSmooth 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes scrollDownSmooth {
+  0% { 
+    transform: translateY(0); 
+  }
+  10% { 
+    transform: translateY(0); /* Brief pause at start */
+  }
+  40% { 
+    transform: translateY(-25%); /* Smooth scroll to first item */
+  }
+  50% { 
+    transform: translateY(-30%); /* Pause on first item */
+  }
+  80% { 
+    transform: translateY(-35%); /* Smooth scroll to second item */
+  }
+  90% { 
+    transform: translateY(-35%); /* Pause on second item */
+  }
+  100% { 
+    transform: translateY(-50%); /* Reset position */
+  }
+}
+
+/* Alternative simpler smooth animation */
+.animate-vertical-scroll-simple {
+  display: flex;
+  flex-direction: column;
+  animation: scrollDownSimple 6s ease-in-out infinite;
+}
+
+@keyframes scrollDownSimple {
+  0% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+  15% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+  35% { 
+    transform: translateY(-25%);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-25%);
+    opacity: 1;
+  }
+  65% { 
+    transform: translateY(-50%);
+    opacity: 0.8;
+  }
+  85% { 
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
+
+/* For very smooth continuous scroll */
+.animate-vertical-scroll-continuous {
+  display: flex;
+  flex-direction: column;
+  animation: scrollDownContinuous 10s linear infinite;
+}
+
+@keyframes scrollDownContinuous {
+  0% { 
+    transform: translateY(0); 
+  }
+    50% { 
+    transform: translateY(-25%); 
+  }
+  100% { 
+    transform: translateY(-50%); 
+  }
+}

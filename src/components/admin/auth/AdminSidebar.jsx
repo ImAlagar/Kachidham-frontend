@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
-import logo from '../../../assets/images/logo.png';
-import logowhite from '../../../assets/images/logowhite.png';
+import logo from '../../../assets/logo.png';
+import logowhite from '../../../assets/logo.png';
 import { FolderPlus, Home, Mail, MessageSquare, Package, ShoppingBag, Sliders, TicketPercent, Users } from 'lucide-react';
 import { FiChevronLeft, FiChevronRight, FiGift, FiLogOut, FiStar, FiTrendingUp } from 'react-icons/fi';
 import { useTheme } from "../../../context/ThemeContext";
 import { FaQq } from 'react-icons/fa';
+import { CgDesignmodo } from 'react-icons/cg';
+import { CiDiscount1 } from 'react-icons/ci';
 
 const AdminSidebar = ({ isOpen, setIsOpen }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
@@ -24,7 +26,7 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
     const handleResize = () => {
       const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
-      
+
       if (mobile) {
         setIsOpen(false);
       } else {
@@ -40,12 +42,14 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
   const menuItems = [
     { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
     { name: "Slider", icon: <Sliders size={20} />, path: "/dashboard/sliders" },
+    { name: "Discounts", icon: <CiDiscount1 size={20} />, path: "/dashboard/discounts" },
     { name: "Products", icon: <Package size={20} />, path: "/dashboard/products" },
     { name: "Categories", icon: <FolderPlus size={20} />, path: "/dashboard/categories" },
     { name: "SubCategories", icon: <FolderPlus size={20} />, path: "/dashboard/subcategories" },
     { name: "Orders", icon: <ShoppingBag size={20} />, path: "/dashboard/orders" },
     { name: "Users", icon: <Users size={20} />, path: "/dashboard/users" },
     { name: "Contact", icon: <Mail size={20} />, path: "/dashboard/contacts" },
+    { name: "Design-Inquiries", icon: <CgDesignmodo size={20} />, path: "/dashboard/design-inquiries" },
     { name: "FAQ", icon: <FaQq size={20} />, path: "/dashboard/faqs" },
     { name: "Review", icon: <FiStar size={20} />, path: "/dashboard/ratings" },
     { name: "Coupons", icon: <FiGift size={20} />, path: "/dashboard/coupons" },
@@ -62,11 +66,11 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
     if (path === "/dashboard" && location.pathname === "/dashboard") {
       return true;
     }
-    
+
     if (path !== "/dashboard" && location.pathname.startsWith(path)) {
       return true;
     }
-    
+
     return false;
   };
 
@@ -120,24 +124,23 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
             {/* Sidebar Header */}
             <div className={`flex items-center justify-between p-6 border-b flex-shrink-0 ${headerBg} ${sidebarBorder}`}>
               <div className="flex items-center space-x-3">
-                <img 
-                  src={theme === "dark" ? logowhite : logo} 
-                  alt="Logo" 
+                <img
+                  src={theme === "dark" ? logowhite : logo}
+                  alt="Logo"
                   className="w-8 h-8 object-contain"
                 />
                 <span className={`text-xl font-italiana font-bold ${textColor}`}>
                   Admin Panel
                 </span>
               </div>
-              
+
               {!isMobile && (
                 <button
                   onClick={toggleSidebar}
-                  className={`p-2 rounded-lg transition-colors ${
-                    theme === "dark" 
-                      ? "hover:bg-gray-700 text-gray-300" 
+                  className={`p-2 rounded-lg transition-colors ${theme === "dark"
+                      ? "hover:bg-gray-700 text-gray-300"
                       : "hover:bg-gray-100 text-gray-600"
-                  }`}
+                    }`}
                 >
                   <FiChevronLeft size={16} />
                 </button>
@@ -145,11 +148,10 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
               {isMobile && (
                 <button
                   onClick={() => setIsOpen(false)}
-                  className={`p-2 rounded-lg transition-colors ${
-                    theme === "dark" 
-                      ? "hover:bg-gray-700 text-gray-300" 
+                  className={`p-2 rounded-lg transition-colors ${theme === "dark"
+                      ? "hover:bg-gray-700 text-gray-300"
                       : "hover:bg-gray-100 text-gray-600"
-                  }`}
+                    }`}
                 >
                   <RxCross2 size={20} />
                 </button>
@@ -169,26 +171,25 @@ const AdminSidebar = ({ isOpen, setIsOpen }) => {
                         setIsOpen(false);
                       }
                     }}
-                    className={`w-full flex items-center justify-start space-x-3 px-4 py-3 rounded-xl text-left transition-all duration-200 group ${
-                      isActive
+                    className={`w-full flex items-center justify-start space-x-3 px-4 py-3 rounded-xl text-left transition-all duration-200 group ${isActive
                         ? `${activeBg} ${activeText} border ${activeBorder} shadow-sm`
                         : `${textMuted} ${hoverBg} hover:text-gray-900 dark:hover:text-white`
-                    }`}
+                      }`}
                   >
                     <div className={
-                      isActive 
-                        ? activeText 
-                        : theme === "dark" 
-                          ? "text-gray-400 group-hover:text-gray-200" 
+                      isActive
+                        ? activeText
+                        : theme === "dark"
+                          ? "text-gray-400 group-hover:text-gray-200"
                           : "text-gray-400 group-hover:text-gray-600"
                     }>
                       {item.icon}
                     </div>
                     <span className="font-medium flex-1">{item.name}</span>
                     {isActive && (
-                      <FiChevronRight 
-                        size={16} 
-                        className={activeText} 
+                      <FiChevronRight
+                        size={16}
+                        className={activeText}
                       />
                     )}
                   </Link>

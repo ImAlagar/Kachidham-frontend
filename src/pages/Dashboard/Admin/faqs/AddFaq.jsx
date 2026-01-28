@@ -156,7 +156,6 @@ const AddFaq = () => {
         isActive: formData.isActive
       };
 
-      console.log('Submitting FAQ data:', faqData); // Debug log
 
       await createFaq(faqData).unwrap();
       

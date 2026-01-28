@@ -1,8 +1,7 @@
-// config/api.js - UPDATED to use localStorage
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import axios from 'axios';
 import { config } from '../config/env';
 
-// Create axios instance with base configuration
 const apiClient = axios.create({
   baseURL: config.API_BASE_URL,
   timeout: 30000,

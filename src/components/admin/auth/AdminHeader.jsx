@@ -146,23 +146,7 @@ const AdminHeader = ({ onMenuClick, sidebarOpen }) => {
 
         {/* Right Section - Theme Toggle & User Menu */}
         <div className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
-          
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className={`p-2 rounded-lg transition-colors flex items-center justify-center ${
-              theme === "dark" 
-                ? "bg-gray-700 hover:bg-gray-600 text-yellow-300" 
-                : "bg-gray-200 hover:bg-gray-300 text-gray-700"
-            }`}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? (
-              <MdOutlineLightMode size={18} />
-            ) : (
-              <CiDark size={18} />
-            )}
-          </button>
+
 
           {/* Notifications (Optional - you can uncomment if needed) */}
           {/*

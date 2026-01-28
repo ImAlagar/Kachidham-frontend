@@ -4,9 +4,9 @@ import { useTheme } from "../../context/ThemeContext";
 import { useAdminForgotPasswordMutation } from "../../redux/services/authService";
 import { FaEnvelope, FaSpinner, FaArrowLeft, FaCheckCircle, FaShieldAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import hangerImage from "../../assets/categories/tshirt.webp";
-import logo from "../../assets/images/logo.png";
-import logowhite from "../../assets/images/logowhite.png";
+import hangerImage from "../../assets/tshirt.webp";
+import logo from "../../assets/logo.png";
+import logowhite from "../../assets/logo.png";
 
 const AdminForgotPassword = () => {
   const navigate = useNavigate();

@@ -15,10 +15,10 @@ import { useTheme } from "../../context/ThemeContext";
 import { useLoginMutation } from "../../redux/services/authService";
 import { setCredentials, authFailure } from "../../redux/slices/authSlice";
 import { useAppSelector } from "../../redux/hooks";
-import hangerImage from "../../assets/categories/tshirt.webp";
+import hangerImage from "../../assets/tshirt.webp";
 import { FaSpinner } from "react-icons/fa";
-import logo from "../../assets/images/logo.png";
-import logowhite from "../../assets/images/logowhite.png";
+import logo from "../../assets/logo.png";
+import logowhite from "../../assets/logo.png";
 
 const AdminLogin = () => {
   const navigate = useNavigate();

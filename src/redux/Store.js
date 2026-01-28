@@ -16,6 +16,9 @@ import customizationReducer from './slices/customizationSlice'; // Add this
 import designReducer from './slices/designSlice'; // Add this
 import { apiSlice } from './services/api';
 import faqReducer from './slices/faqSlice';
+import designInquiryReducer from './slices/designInquirySlice';
+import discountReducer from './slices/discountSlice';
+
 
 // Configure the store
 const store = configureStore({
@@ -35,6 +38,9 @@ const store = configureStore({
     faq: faqReducer,
     customization: customizationReducer, // Add this
     design: designReducer, // Add this
+    designInquiry: designInquiryReducer,
+    discount: discountReducer,
+
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>

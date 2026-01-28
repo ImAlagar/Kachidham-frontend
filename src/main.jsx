@@ -1,27 +1,25 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./routes/index.jsx";
-import "./index.css";
+import { ToastContainer } from "react-toastify";
 
-// 🧩 Redux imports
+import { HelmetProvider } from "react-helmet-async";   // ⭐ add this
+
+import { router } from "./routes/Router.jsx";
+import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/Store.js";
-
-// 🎨 Theme Context
-import { ThemeProvider } from "./context/ThemeContext";
 import AuthInitializer from "./components/AuthInitializer.js";
-
-// 🔔 React Toastify
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <ThemeProvider>
         <AuthInitializer>
-          <RouterProvider router={router} />
+          <HelmetProvider>
+                      <RouterProvider router={router} />
           {/* Global Toast Container */}
           <ToastContainer
             position="top-right"
@@ -35,6 +33,7 @@ createRoot(document.getElementById("root")).render(
             pauseOnHover
             theme="light"
           />
+          </HelmetProvider>
         </AuthInitializer>
       </ThemeProvider>
     </Provider>

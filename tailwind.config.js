@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,13 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#ECE7F9",
+        primary: '#0B1026',
+        secondary: '#C9B56A',
       },
       fontFamily: {
-        heading: ['"Cormorant Garamond"', "serif"],
-        subheading: ['"Playfair Display"', "serif"],
-        body: ['"Manrope"', "sans-serif"],
-        ui: ['"Lexend"', "sans-serif"],
+          'baijamjuree': ['Bai Jamjuree', 'sans-serif'],
+          'josefin':['Josefin Sans', 'sans-serif'],
       },
     },
   },

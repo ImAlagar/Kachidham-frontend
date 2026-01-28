@@ -126,11 +126,6 @@ const AddCategory = () => {
       toast.error('Category name is required');
       return false;
     }
-
-    if (image) {
-      toast.error('Category image is required');
-      return false;
-    }
     return true;
   };
 

@@ -173,7 +173,6 @@ const EditFaq = () => {
         isActive: formData.isActive
       };
 
-      console.log('Updating FAQ data:', faqUpdateData); // Debug log
 
       await updateFaq({
         faqId,
